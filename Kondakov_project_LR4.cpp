@@ -191,7 +191,7 @@ inline int MenuItem::get_number() const {
 // Ввод и присваивание значения переменной
 function<void()> MenuItem::input_var_value(float& var_link, const string& label) {
     return [=, &var_link]() {
-        // Ввод и присваивание значения переменной
+        InputControl::enter_float(var_link, label);
     };
 }
 
