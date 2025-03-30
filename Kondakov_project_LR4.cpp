@@ -196,9 +196,13 @@ function<void()> MenuItem::input_var_value(float& var_link, const string& label)
 }
 
 // Найти дробную часть суммы x, y, z
+// Я помему-то не заметил "дробную часть суммы"
+// И сделал просто сумму
+// Исправляю
 function<void()> MenuItem::calculate_sum_of_xyz(float& x, float& y, float& z) {
     return [&]() {
-        cout << x + y + z;
+        float sum = x + y + z;
+        cout << sum - static_cast<int>(sum) * ((sum > 0) - (sum < 0));
     };
 }
 
