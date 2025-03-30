@@ -162,7 +162,7 @@ public:
     static function<void()> calculate_sum_of_xyz(float x, float y, float z);
 
     // Округлить сумму x, y, z до ближайшего целого
-    static function<void()> round_sum_of_xyz(float x, float y, float z);
+    static function<void()> round_sum_of_xyz(float& x, float& y, float& z);
 
     // Вывод меню
     template <typename Container>
@@ -203,9 +203,10 @@ function<void()> MenuItem::calculate_sum_of_xyz(float x, float y, float z) {
 }
 
 // Округлить сумму x, y, z до ближайшего целого
-function<void()> MenuItem::round_sum_of_xyz(float x, float y, float z) {
-    return []() {
-        // Округление
+function<void()> MenuItem::round_sum_of_xyz(float& x, float& y, float& z) {
+    return [&]() {
+        float sum = x + y + z;
+        cout << static_cast<int>(sum + 0.5f * ((sum > 0) - (sum < 0)));
     };
 }
 
