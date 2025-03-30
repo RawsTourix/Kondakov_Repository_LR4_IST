@@ -159,7 +159,7 @@ public:
     static function<void()> input_var_value(float& var_link, const string& label);
 
     // Найти дробную часть суммы x, y, z
-    static function<void()> calculate_sum_of_xyz(float x, float y, float z);
+    static function<void()> calculate_sum_of_xyz(float& x, float& y, float& z);
 
     // Округлить сумму x, y, z до ближайшего целого
     static function<void()> round_sum_of_xyz(float x, float y, float z);
@@ -196,9 +196,9 @@ function<void()> MenuItem::input_var_value(float& var_link, const string& label)
 }
 
 // Найти дробную часть суммы x, y, z
-function<void()> MenuItem::calculate_sum_of_xyz(float x, float y, float z) {
-    return []() {
-        // Вычисление суммы
+function<void()> MenuItem::calculate_sum_of_xyz(float& x, float& y, float& z) {
+    return [&]() {
+        cout << x + y + z;
     };
 }
 
